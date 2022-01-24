@@ -91,7 +91,15 @@ function playRound(playerSelection, computerSelection) {
 function game() {
   for (let i = 1; i <= 5; i++) {
     const computerSelection = computerPlay();
-    let playerSelection = prompt('Rock, Paper, Scissors').toLowerCase();
+    let playerSelection = prompt('Rock, Paper, Scissors'); // user prompt
+
+    if(playerSelection === null) {
+      alert('You\'ve stopped the game. Refresh the page to start again 😊');
+      return;
+    } // alert message if the user clicks on cancel when prompted to answer
+
+    playerSelection = playerSelection.toLowerCase(); // apply lower case to the user's answer
+    
     console.log(`Round ${i}:`, playRound(playerSelection, computerSelection));
   }
 
